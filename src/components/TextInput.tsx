@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const TextInput = () => {
+    const [SearchInput, SetSearchInput] = useState([])
     return (
-        <div></div>
+        <>
+            <input type="text">
+
+            </input>
+            <button>
+                Search
+            </button>
+        </>
     )
 }
