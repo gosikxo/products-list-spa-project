@@ -21,10 +21,16 @@ function App() {
       })
   }, [pageNumber])
 
+  function changePage() {
+    pageNumber === 1 ? setPageNumber(2) : setPageNumber(1)
+  }
+
   return (
     <div className="App">
       <TextInput />
-      {products !== null ? <Table products={products}/> : null}
+      {products !== null ? <Table products={products} /> : null}
+      {pageNumber === 2 ? <button onClick={changePage}>Previous Page</button> : null}
+      {pageNumber === 1 ? <button onClick={changePage}>Next Page</button> : null}
     </div>
   );
 }
