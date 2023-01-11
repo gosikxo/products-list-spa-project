@@ -7,9 +7,9 @@ export const Table = (props: { products: Product[] }) => {
         <table>
             <tbody>
                 <thead>
-                    <tr>
-                        <th> Products </th>
-                    </tr>
+
+                    <th> Products </th>
+
                 </thead>
                 <tr>
                     <td> id </td>

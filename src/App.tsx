@@ -29,8 +29,8 @@ function App() {
     <div className="App">
       <TextInput />
       {products !== null ? <Table products={products} /> : null}
-      {pageNumber === 2 ? <button onClick={changePage}>Previous Page</button> : null}
-      {pageNumber === 1 ? <button onClick={changePage}>Next Page</button> : null}
+      {pageNumber === 2 ? <button className="pageButton" onClick={changePage}>Previous Page</button> : null}
+      {pageNumber === 1 ? <button className="pageButton" onClick={changePage}>Next Page</button> : null}
     </div>
   );
 }

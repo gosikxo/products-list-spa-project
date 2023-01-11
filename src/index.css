@@ -1,25 +1,49 @@
+.app {
+  width: 100%;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 table,
 td {
   width: 80%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid #0a6679;
 }
 
 thead {
   width: 100%;
+  color: #0a6679;
+  font-weight: 700;
 }
 
 th {
-  width: 100%;
-  text-align: center;
-  color: rgb(0, 0, 0);
+  width: 5%;
 }
 
 tr {
   display: flex;
 }
 
-td {
-  border: 0.5px solid rgb(0, 0, 0);
+button {
+  width: 20%;
+  margin: 10px;
+  transition-duration: 0.4s;
+  background-color: #a3d5df;
+  border: 1px solid #0a6679;
+  font-weight: 700;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pageButton {
+  margin-left: 80%;
 }
