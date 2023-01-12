@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Table } from "./components/Table"
-import { TextInput } from "./components/TextInput"
 
 export type Product = {
   id: number,
@@ -27,7 +26,6 @@ function App() {
 
   return (
     <div className="App">
-      <TextInput />
       {products !== null ? <Table products={products} /> : null}
       {pageNumber === 2 ? <button className="pageButton" onClick={changePage}>Previous Page</button> : null}
       {pageNumber === 1 ? <button className="pageButton" onClick={changePage}>Next Page</button> : null}
