@@ -95,13 +95,17 @@ function App() {
     setClickedId(searchId)
   }
 
+  const goBack = (): void => {
+    setClickedId(null)
+  }
+
   return (
     <div className="App">
-      <div className="searchInput">
+      {clickedId == null ? <div className="searchInput">
         <label className="searchInputLabel" htmlFor="searchInput">Search Product:</label>
         <input className="searchInputText" type="text" value={searchInput} onChange={handleChange} id="searchInput">
         </input>
-      </div>
+      </div> : <button onClick={goBack}>Back</button>}
       {error && <div>{error}</div>}
       {!isSearching && products !== null && clickedId !== null ? <ItemData products={products} /> : null}
       {!error && clickedId == null && products !== null ? <Table products={products} onClick={handleClick} /> : null}
