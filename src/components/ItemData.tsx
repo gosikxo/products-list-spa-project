@@ -19,11 +19,11 @@ export const ItemData = (props: { products: Product[] }) => {
                     {props.products
                         .map(product =>
                             <tr>
-                                <td> {product.id} </td>
-                                <td> {product.name} </td>
-                                <td> {product.year} </td>
-                                <td> {product.color} </td>
-                                <td> {product.pantone_value} </td>
+                                <td style={{ backgroundColor: product.color }}> {product.id} </td>
+                                <td style={{ backgroundColor: product.color }}> {product.name} </td>
+                                <td style={{ backgroundColor: product.color }}> {product.year} </td>
+                                <td style={{ backgroundColor: product.color }}> {product.color} </td>
+                                <td style={{ backgroundColor: product.color }}> {product.pantone_value} </td>
                             </tr>)
                     }
                 </tbody>

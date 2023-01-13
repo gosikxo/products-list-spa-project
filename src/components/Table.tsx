@@ -21,9 +21,9 @@ export const Table = (props: { products: Product[], onClick: (productId: number)
                     {props.products
                         .map(product =>
                             <tr onClick={() => props.onClick(product.id)}>
-                                <td> {product.id} </td>
-                                <td> {product.name} </td>
-                                <td> {product.year} </td>
+                                <td style={{ backgroundColor: product.color }}> {product.id} </td>
+                                <td style={{ backgroundColor: product.color }}> {product.name} </td>
+                                <td style={{ backgroundColor: product.color }}> {product.year} </td>
                             </tr>)
                     }
                 </tbody>

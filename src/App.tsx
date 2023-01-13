@@ -107,7 +107,7 @@ function App() {
         </input>
       </div> : <button onClick={goBack}>Back</button>}
       {error && <div>{error}</div>}
-      {!isSearching && products !== null && clickedId !== null ? <ItemData products={products} /> : null}
+      {products !== null && clickedId !== null ? <ItemData products={products} /> : null}
       {!error && clickedId == null && products !== null ? <Table products={products} onClick={handleClick} /> : null}
       {!isSearching && clickedId == null && <div className="buttons">
         <button style={{ display: "inline-flex" }} disabled={pageNumber === 1} className="pageButton" onClick={changePage}>Previous Page</button>
