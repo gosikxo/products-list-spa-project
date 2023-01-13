@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Table } from "./components/Table"
+import { ItemData } from "./components/ItemData"
 
 export type Product = {
   id: number,
@@ -46,6 +47,23 @@ function App() {
             setProducts([res.data])
           }
         })
+    } else if (clickedId !== null) {
+      fetch(`https://reqres.in/api/products?id=${clickedId}`)
+        .then(res => res.json())
+        .then(res => {
+          setError(null)
+
+          if (!res.data) {
+            setError("Couldn't load data from server.")
+            return
+          }
+
+          if (Array.isArray(res.data)) {
+            setProducts(res.data)
+          } else {
+            setProducts([res.data])
+          }
+        })
     } else {
       fetch(`https://reqres.in/api/products?page=${pageNumber}`)
         .then(res => res.json())
@@ -65,7 +83,7 @@ function App() {
           }
         })
     }
-  }, [pageNumber, searchInput])
+  }, [pageNumber, searchInput, clickedId])
 
   function changePage() {
     pageNumber === 1 ? setPageNumber(2) : setPageNumber(1)
@@ -80,13 +98,14 @@ function App() {
   return (
     <div className="App">
       <div className="searchInput">
-        <label className="searchInputLabel">Search Product:</label>
-        <input className="searchInputText" type="text" value={searchInput} onChange={handleChange}>
+        <label className="searchInputLabel" htmlFor="searchInput">Search Product:</label>
+        <input className="searchInputText" type="text" value={searchInput} onChange={handleChange} id="searchInput">
         </input>
       </div>
       {error && <div>{error}</div>}
-      {!error && products !== null ? <Table products={products} onClick={handleClick} /> : null}
-      {!isSearching && <div className="buttons">
+      {!isSearching && products !== null && clickedId !== null ? <ItemData products={products} /> : null}
+      {!error && clickedId == null && products !== null ? <Table products={products} onClick={handleClick} /> : null}
+      {!isSearching && clickedId == null && <div className="buttons">
         <button style={{ display: "inline-flex" }} disabled={pageNumber === 1} className="pageButton" onClick={changePage}>Previous Page</button>
         <button style={{ display: "inline-flex" }} disabled={pageNumber === totalPages} className="pageButton" onClick={changePage}>Next Page</button>
       </div>}
