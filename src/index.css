@@ -29,6 +29,11 @@ tr {
   display: flex;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 button {
   width: 20%;
   margin: 10px;
@@ -39,8 +44,22 @@ button {
   font-family: 'Nunito Sans', sans-serif;
 }
 
-.button:hover {
-  background-color: #4CAF50;
-  color: white;
+button:hover {
+  background-color: #5ab59a;
+  cursor: pointer;
 }
 
+.searchInput {
+  display: flex;
+  margin: 10px;
+}
+
+.searchInputLabel {
+  margin-right: 10px;
+  color: #0a6679;
+  font-weight: 700;
+}
+
+.searchInputText:hover {
+  cursor: pointer;
+}

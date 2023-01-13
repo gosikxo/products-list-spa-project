@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Product } from '../App'
 
 
-export const Table = (props: { products: Product[] }) => {
+export const Table = (props: { products: Product[], onClick: (productId: number) => void }) => {
     return (
         <>
-            
+
             <table>
                 <tbody>
                     <thead>
@@ -18,14 +18,13 @@ export const Table = (props: { products: Product[] }) => {
                         <td> name </td>
                         <td> year </td>
                     </tr>
-                    { props.products
-                       
+                    {props.products
                         .map(product =>
-                        <tr>
-                            <td> {product.id} </td>
-                            <td> {product.name} </td>
-                            <td> {product.year} </td>
-                        </tr>)
+                            <tr onClick={() => props.onClick(product.id)}>
+                                <td> {product.id} </td>
+                                <td> {product.name} </td>
+                                <td> {product.year} </td>
+                            </tr>)
                     }
                 </tbody>
             </table>
